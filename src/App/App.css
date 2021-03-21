@@ -1,0 +1,25 @@
+.App {
+  /* App will be the parent element for the
+  absolutely positioned screens. */
+  position: relative;
+
+  /* Its dimensions will be the dimensions of the screens */
+  height: 100vh;
+  width: 100vw;
+
+  /* max-width: 400px;
+  max-height: 100vh;
+  min-height: 100vh; */
+
+  /* margin auto to center horizontally an element that
+  has the width property specified. */
+  margin: auto;
+
+  /* the next line doesn't change anything about the App
+  container, except that it makes the App div the
+  CONTAINING BLOCK for elements with `position: fixed`,
+  such as the Add button in the Mercadorias screen.
+  The `top`, ..., `bottom` values become relative to
+  the App div. */
+  transform: translate(0, 0);
+}
