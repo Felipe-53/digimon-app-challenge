@@ -8,15 +8,19 @@ const useStyles = makeStyles({
   }
 })
 
-function Actions() {
+function Actions({ set_openModal }) {
   return (
     <div>
-      <Button variant="contained" color="primary">
-        VER TODOS
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => set_openModal(true)}
+      >
+        SEARCH
       </Button>
 
       <Button variant="contained" color="secondary">
-        INCLUIR
+        INCLUDE
       </Button>
     </div>
   );
