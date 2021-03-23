@@ -30,6 +30,8 @@ function App() {
           searchValue={searchValue}
           set_searchValue={set_searchValue}
           fetchData={fetchData}
+          digimons={digimons}
+          set_digimons={set_digimons}
         />
       )
     }

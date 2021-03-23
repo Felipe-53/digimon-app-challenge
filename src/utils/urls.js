@@ -5,11 +5,12 @@ const urls = {
 }
 
 function buildUrl(filterBy, value) {
+  console.log(filterBy, value);
   let baseUrl = urls[filterBy];
   if (!filterBy) {
     return baseUrl
   }
-  return baseUrl + value;
+  return baseUrl + filterBy + '/' + value;
 }
 
 export default buildUrl

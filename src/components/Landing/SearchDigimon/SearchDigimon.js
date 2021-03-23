@@ -21,9 +21,10 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
     set_searchType(event.target.value);
   }
 
-  useEffect(() => {
-
-  }, []);
+  function handleSearchClick() {
+    fetchData();
+    set_openModal(false);
+  }
 
   return (
     <Dialog PaperProps={{style: {width: '60%'}}} open={openModal} onClose={() => set_openModal(false)}>
@@ -70,7 +71,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
         <Button
           variant="contained"
           color="primary"
-          onClick={fetchData}
+          onClick={handleSearchClick}
         >
           SEARCH
         </Button>
