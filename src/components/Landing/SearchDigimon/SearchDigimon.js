@@ -1,71 +1,88 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 import useStyles from './searchDigimonStyles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import getLevels from '../../../utils/getLevels'
+import Button from '@material-ui/core/Button';
 
-
-function SearchDigimon({ openModal, set_openModal }) {
+function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue }) {
   const classes = useStyles();
+
+  function changeFilter(event) {
+    set_searchType(event.target.value);
+  }
+
+  useEffect(() => {
+
+  }, []);
 
   return (
     <Dialog PaperProps={{style: {width: '60%'}}} open={openModal} onClose={() => set_openModal(false)}>
       <DialogTitle>Search Digimon</DialogTitle>
-      <DialogContent>
-        OLá
-      </DialogContent>
-    </Dialog>
-  )
-}
+      <DialogContent className={classes.dialogContent}>
+        <RadioGroup  onChange={changeFilter} row={true} defaultValue="name">
+          <FormControlLabel
+            value="name"
+            control={<Radio color="primary" />}
+            label="Name"
+            labelPlacement="top"
+          />
+          
+          <FormControlLabel
+            value="level"
+            control={<Radio color="primary" />}
+            label="Level"
+            labelPlacement="top"
+          />
+        </RadioGroup>
 
-// function oi() {
-//   function FormDialog() {
-//     const [open, setOpen] = React.useState(false);
-  
-//     const handleClickOpen = () => {
-//       setOpen(true);
-//     };
-  
-//     const handleClose = () => {
-//       setOpen(false);
-//     };
-  
-//     return (
-//       <div>
-//         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-//           Open form dialog
-//         </Button>
-//         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-//           <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-//           <DialogContent>
-//             <DialogContentText>
-//               To subscribe to this website, please enter your email address here. We will send updates
-//               occasionally.
-//             </DialogContentText>
-//             <TextField
-//               autoFocus
-//               margin="dense"
-//               id="name"
-//               label="Email Address"
-//               type="email"
-//               fullWidth
-//             />
-//           </DialogContent>
-//           <DialogActions>
-//             <Button onClick={handleClose} color="primary">
-//               Cancel
-//             </Button>
-//             <Button onClick={handleClose} color="primary">
-//               Subscribe
-//             </Button>
-//           </DialogActions>
-//         </Dialog>
-//       </div>
-//     );
-//   }
-// }
+        {
+          searchType === "name"?
+          <TextField
+            value={searchValue} 
+            onChange={e => set_searchValue(e.target.value)}
+          /> :
+          <Select onChange={e => set_searchValue(e.target.value)}>
+            {getLevels().map(level => {
+              return (
+                <MenuItem
+                  key={level}
+                  value={level}
+                >
+                  {level}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        }
+      </DialogContent>
+
+      <DialogActions>
+        <Button
+          variant="contained"
+          color="primary"
+        >
+          SEARCH
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+        >
+          SERCH ALL
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
 
 
 

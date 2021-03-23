@@ -4,4 +4,4 @@ async function getEndpoint(url) {
   return json;
 }
 
-export {getEndpoint};
+export default getEndpoint;

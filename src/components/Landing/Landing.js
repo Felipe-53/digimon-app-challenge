@@ -5,7 +5,7 @@ import Info from './Info/Info';
 import Actions from './Actions/Actions';
 import SearchDigimon from './SearchDigimon/SearchDigimon'
 
-function Landing() {
+function Landing({searchType, set_searchType, searchValue, set_searchValue}) {
   const [openModal, set_openModal] = useState(false);
 
   return (
@@ -16,6 +16,10 @@ function Landing() {
         set_openModal={set_openModal}
       />
       <SearchDigimon
+        searchType={searchType}
+        set_searchType={set_searchType}
+        searchValue={searchValue}
+        set_searchValue={set_searchValue}
         openModal={openModal}
         set_openModal={set_openModal}
       />
