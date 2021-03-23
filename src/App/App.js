@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import './index.css';
 import Landing from '../components/Landing/Landing';
+import Listing from '../components/Listing/Listing';
 import buildUrl from '../utils/urls';
 import consumeEndpoint from '../utils/getEndpoint';
+
 
 function App() {
   const [digimons, set_digimons] = useState([]);
@@ -36,12 +38,18 @@ function App() {
       )
     }
 
-    if (digimons.length > 1) {
-      //  to be changed
-      return (
-        null 
-      )
-    }
+    return (
+      <Listing
+        digimons={digimons}
+        searchType={searchType}
+        set_searchType={set_searchValue}
+        searchValue={searchValue}
+        set_searchValue={set_searchValue}
+        fetchData={fetchData}
+        set_digimons={set_digimons}
+      />
+    )
+    
   }
 
   return (

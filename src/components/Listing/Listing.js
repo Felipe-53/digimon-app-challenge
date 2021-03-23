@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { getEndpoint } from '../../utils/getEndpoint';
+import React, { useState } from 'react';
+import BasePage from '../BasePage/BasePage';
+import DigimonTable from './DigimonTable/DigimonTable'
 
-function Listing() {
-  useEffect(
-    (async () => {
-      let digimons = await getEndpoint();
-    })()
-  , []);
+function Listing({ digimons }) {
 
   return (
-    <div>
-      
-    </div>
+    <BasePage>
+      <DigimonTable
+        digimons={digimons}
+      />
+    </BasePage>
   )
 }
 
