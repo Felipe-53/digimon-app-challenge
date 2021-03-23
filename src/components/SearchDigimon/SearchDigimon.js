@@ -32,6 +32,8 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
       if (data.length > 1) {
         set_whichPage('listing');
       }
+      set_searchType('name');
+      set_searchValue(null);
     })
   }
 
