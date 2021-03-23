@@ -5,6 +5,10 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
+  },
+
+  inputs: {
+    width: '45%'
   }
 });
 

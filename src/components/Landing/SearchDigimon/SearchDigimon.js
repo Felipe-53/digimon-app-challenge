@@ -35,8 +35,14 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
     })
   }
 
+  function handleClose() {
+    set_openModal(false);
+    set_searchType('name');
+    set_searchValue(null);
+  }
+
   return (
-    <Dialog PaperProps={{style: {width: '60%'}}} open={openModal} onClose={() => set_openModal(false)}>
+    <Dialog PaperProps={{style: {width: '60%'}}} open={openModal} onClose={handleClose}>
       <DialogTitle>Search Digimon</DialogTitle>
       <DialogContent className={classes.dialogContent}>
         <RadioGroup  onChange={changeFilter} row={true} defaultValue="name">
@@ -58,10 +64,14 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
         {
           searchType === "name"?
           <TextField
+            className={classes.inputs}
             value={searchValue} 
             onChange={e => set_searchValue(e.target.value)}
           /> :
-          <Select onChange={e => set_searchValue(e.target.value)}>
+          <Select
+            className={classes.inputs}
+            onChange={e => set_searchValue(e.target.value)}
+          >
             {getLevels().map(level => {
               return (
                 <MenuItem
