@@ -5,7 +5,7 @@ import Info from './Info/Info';
 import Actions from './Actions/Actions';
 import SearchDigimon from './SearchDigimon/SearchDigimon'
 
-function Landing({searchType, set_searchType, searchValue, set_searchValue}) {
+function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData}) {
   const [openModal, set_openModal] = useState(false);
 
   return (
@@ -22,6 +22,7 @@ function Landing({searchType, set_searchType, searchValue, set_searchValue}) {
         set_searchValue={set_searchValue}
         openModal={openModal}
         set_openModal={set_openModal}
+        fetchData={fetchData}
       />
     </BasePage>
   );

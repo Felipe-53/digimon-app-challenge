@@ -14,7 +14,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import getLevels from '../../../utils/getLevels'
 import Button from '@material-ui/core/Button';
 
-function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue }) {
+function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue, fetchData }) {
   const classes = useStyles();
 
   function changeFilter(event) {
@@ -70,6 +70,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
         <Button
           variant="contained"
           color="primary"
+          onClick={fetchData}
         >
           SEARCH
         </Button>

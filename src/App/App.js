@@ -6,7 +6,6 @@ import buildUrl from '../utils/urls';
 import getEndpoint from '../utils/getEndpoint';
 
 function App() {
-  const [readyToFectch, set_readyToFectch] = useState(false);
   const [digimons, set_digimons] = useState([]);
   const [searchType, set_searchType] = useState('name');
   const [searchValue, set_searchValue] = useState(null);
@@ -26,6 +25,7 @@ function App() {
           set_searchType={set_searchType}
           searchValue={searchValue}
           set_searchValue={set_searchValue}
+          fetchData={fetchData}
         />
       )
     }
