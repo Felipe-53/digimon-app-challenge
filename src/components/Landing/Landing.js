@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from './digimon-logo.svg';
 import Info from './Info/Info';
 import Actions from './Actions/Actions';
-import SearchDigimon from './SearchDigimon/SearchDigimon'
+import SearchDigimon from '../SearchDigimon/SearchDigimon';
 import ViewDigimon from '../ViewDigimon/ViewDigimon'
 
 function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData, digimons, set_digimons, set_whichPage}) {

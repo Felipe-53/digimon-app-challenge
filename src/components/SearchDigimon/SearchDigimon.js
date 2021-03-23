@@ -11,9 +11,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import getLevels from '../../../utils/getLevels'
+import getLevels from '../../utils/getLevels';
 import Button from '@material-ui/core/Button';
-import { BadApiResponseError } from '../../../utils/errors';
+import { BadApiResponseError } from '../../utils/errors';
 
 function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue, fetchData, set_whichPage }) {
   const classes = useStyles();
