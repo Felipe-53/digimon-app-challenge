@@ -5,7 +5,7 @@ import Actions from './Actions/Actions';
 import SearchDigimon from './SearchDigimon/SearchDigimon'
 import ViewDigimon from '../ViewDigimon/ViewDigimon'
 
-function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData, digimons, set_digimons}) {
+function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData, digimons, set_digimons, set_whichPage}) {
   const [openModal, set_openModal] = useState(false);
 
   function defineModal() {
@@ -18,6 +18,7 @@ function Landing({searchType, set_searchType, searchValue, set_searchValue, fetc
         set_searchValue={set_searchValue}
         openModal={openModal}
         set_openModal={set_openModal}
+        set_whichPage={set_whichPage}
         fetchData={fetchData}
       />
       );

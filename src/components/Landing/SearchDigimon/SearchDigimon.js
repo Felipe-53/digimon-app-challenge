@@ -13,8 +13,9 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import getLevels from '../../../utils/getLevels'
 import Button from '@material-ui/core/Button';
+import { BadApiResponseError } from '../../../utils/errors';
 
-function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue, fetchData }) {
+function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue, fetchData, set_whichPage }) {
   const classes = useStyles();
 
   function changeFilter(event) {
@@ -23,8 +24,15 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
   }
 
   function handleSearchClick() {
-    fetchData();
-    set_openModal(false);
+    fetchData().then(data => {
+      if (data instanceof BadApiResponseError) {
+        return // error handling here
+      }
+      set_openModal(false);
+      if (data.length > 1) {
+        set_whichPage('listing');
+      }
+    })
   }
 
   return (
