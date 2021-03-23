@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import useStyles from './digimonTableStyles';
 
-function DigimonTable({ digimons, set_digimons }) {
+function DigimonTable({ fetchedApiData, set_digimons }) {
   const classes = useStyles();
 
   return (
@@ -23,7 +23,7 @@ function DigimonTable({ digimons, set_digimons }) {
       </TableHead>
 
       <TableBody>
-        {digimons.map((digimon) => (
+        {fetchedApiData.map((digimon) => (
           <TableRow 
             key={digimon.name}
             hover

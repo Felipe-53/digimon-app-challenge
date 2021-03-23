@@ -13,7 +13,7 @@ function App() {
   const [digimons, set_digimons] = useState([]);
   const [searchType, set_searchType] = useState('name');
   const [searchValue, set_searchValue] = useState(null);
-  const [fetchError, set_fetchError] = useState(false);
+  const [fetchedApiData, set_fetchedApiData] = useState(false);
   const [whichPage, set_whichPage] = useState('landing');
 
 
@@ -23,6 +23,7 @@ function App() {
     if (data === "error") {
       throw new BadApiResponseError('error');
     }
+    set_fetchedApiData(data);
     set_digimons(data);
     return data;
   }
@@ -50,6 +51,7 @@ function App() {
         set_searchValue={set_searchValue}
         fetchData={fetchData}
         set_digimons={set_digimons}
+        fetchedApiData={fetchedApiData}
       />
     )
   }

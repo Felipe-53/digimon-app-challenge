@@ -21,6 +21,8 @@ const useStyles = makeStyles({
 function ViewDigimon({digimons, set_digimons}) {
   const classes = useStyles();
 
+  if (digimons.length !== 1) return null;
+
   let [digimon] = digimons;
   let {name, level, img} = digimon; 
 
