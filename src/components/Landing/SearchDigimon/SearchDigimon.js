@@ -18,6 +18,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
   const classes = useStyles();
 
   function changeFilter(event) {
+    set_searchValue(null);
     set_searchType(event.target.value);
   }
 
