@@ -3,22 +3,26 @@ import './App.css';
 import './index.css';
 import Landing from '../components/Landing/Landing';
 import buildUrl from '../utils/urls';
-import getEndpoint from '../utils/getEndpoint';
+import consumeEndpoint from '../utils/getEndpoint';
 
 function App() {
   const [digimons, set_digimons] = useState([]);
   const [searchType, set_searchType] = useState('name');
   const [searchValue, set_searchValue] = useState(null);
+  const [fetchError, set_fetchError] = useState(false);
 
 
   const fetchData = async () => {
     const url = buildUrl(searchType, searchValue);
-    let data = getEndpoint(url);
+    let data = await consumeEndpoint(url);
+    if (data === "error") {
+      return set_fetchError(true);
+    }
     set_digimons(data);
   }
 
   function defineRenderPage() {
-    if (digimons.length === 0) {
+    if (digimons.length === 0 || digimons.length === 1) {
       return (
         <Landing
           searchType={searchType}
@@ -30,20 +34,19 @@ function App() {
       )
     }
 
-    if (digimons.length === 1) {
+    if (digimons.length > 1) {
       //  to be changed
       return (
         null 
       )
     }
-
-    //  to be changed
-    return null;
   }
 
   return (
     <div className="App">
-      {defineRenderPage()}
+      {
+        defineRenderPage()
+      }
     </div>
   );
 }
