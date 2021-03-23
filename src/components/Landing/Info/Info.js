@@ -4,7 +4,11 @@ import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles({
   info: {
-    width: '50%'
+    margin: '2rem',
+    maxWidth: '50%',
+    textAlign: 'justify',
+    textJustify: 'inter-word',
+    
   }
 })
 

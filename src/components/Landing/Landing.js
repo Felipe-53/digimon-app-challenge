@@ -4,8 +4,11 @@ import Info from './Info/Info';
 import Actions from './Actions/Actions';
 import SearchDigimon from '../SearchDigimon/SearchDigimon';
 import ViewDigimon from '../ViewDigimon/ViewDigimon'
+import useStyles from './landingStyles';
 
 function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData, digimons, set_digimons, set_whichPage}) {
+  const classes = useStyles();
+
   const [openModal, set_openModal] = useState(false);
 
   function defineModal() {
@@ -34,7 +37,7 @@ function Landing({searchType, set_searchType, searchValue, set_searchValue, fetc
 
   return (
     <>
-      <img src={logo} alt="The digimon logo"/>
+      <img className={classes.hero} src={logo} alt="The digimon logo"/>
       <Info />
       <Actions
         set_openModal={set_openModal}
