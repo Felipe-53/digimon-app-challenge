@@ -18,8 +18,11 @@ const useStyles = makeStyles({
   }
 })
 
-function ViewDigimon({name, level, img, digimons, set_digimons}) {
+function ViewDigimon({digimons, set_digimons}) {
   const classes = useStyles();
+
+  let [digimon] = digimons;
+  let {name, level, img} = digimon; 
 
   return (
     <Dialog open={digimons.length === 1} onClose={() => set_digimons([])}>
