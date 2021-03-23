@@ -16,20 +16,20 @@ function DigimonTable({ digimons }) {
     <Table className={classes.digimonTable} aria-label="simple table">
       <TableHead>
         <TableRow>
-          <TableCell align="right">Avatar</TableCell>
-          <TableCell align="right">Name</TableCell>
-          <TableCell align="right">Level</TableCell>
+          <TableCell align="center">Avatar</TableCell>
+          <TableCell align="center">Name</TableCell>
+          <TableCell align="center">Level</TableCell>
         </TableRow>
       </TableHead>
 
       <TableBody>
         {digimons.map((digimon) => (
           <TableRow key={digimon.name}>
-            <TableCell align="right">
-              <Avatar alt={digimon.name} src={digimon.img} />
+            <TableCell align="center">
+              <Avatar src={digimon.img} />
             </TableCell>
-            <TableCell align="right">{digimon.name}</TableCell>
-            <TableCell align="right">{digimon.level}</TableCell>
+            <TableCell align="center">{digimon.name}</TableCell>
+            <TableCell align="center">{digimon.level}</TableCell>
           </TableRow>
         ))}
       </TableBody>
