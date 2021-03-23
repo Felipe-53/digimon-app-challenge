@@ -2,12 +2,12 @@ import React from 'react';
 import AppBar from '../AppBar/AppBar';
 import useStyles from './basePageStyles'
 
-function BasePage({ children }) {
+function BasePage({ backToLanding, children }) {
   const classes = useStyles();
 
   return (
     <div className={classes.base}>
-      <AppBar />
+      <AppBar backToLanding={backToLanding} />
       {children}
     </div>
   );

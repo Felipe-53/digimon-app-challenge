@@ -5,6 +5,7 @@ import Landing from '../components/Landing/Landing';
 import Listing from '../components/Listing/Listing';
 import buildUrl from '../utils/urls';
 import consumeEndpoint from '../utils/getEndpoint';
+import BasePage from '../components/BasePage/BasePage';
 
 
 function App() {
@@ -54,9 +55,9 @@ function App() {
 
   return (
     <div className="App">
-      {
-        defineRenderPage()
-      }
+      <BasePage backToLanding={() => set_digimons([])}>
+        {defineRenderPage()}
+      </BasePage>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import logo from './digimon-logo.svg';
-import BasePage from '../BasePage/BasePage'
 import Info from './Info/Info';
 import Actions from './Actions/Actions';
 import SearchDigimon from './SearchDigimon/SearchDigimon'
@@ -33,14 +32,14 @@ function Landing({searchType, set_searchType, searchValue, set_searchValue, fetc
   }
 
   return (
-    <BasePage>
+    <>
       <img src={logo} alt="The digimon logo"/>
       <Info />
       <Actions
         set_openModal={set_openModal}
       />
       {defineModal()}
-    </BasePage>
+    </>
   );
 }
 
