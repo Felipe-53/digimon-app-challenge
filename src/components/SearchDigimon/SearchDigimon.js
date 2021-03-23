@@ -47,7 +47,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
     <Dialog PaperProps={{style: {width: '60%'}}} open={openModal} onClose={handleClose}>
       <DialogTitle>Search Digimon</DialogTitle>
       <DialogContent className={classes.dialogContent}>
-        <RadioGroup  onChange={changeFilter} row={true} defaultValue="name">
+        <RadioGroup className={classes.radioGroup} onChange={changeFilter} row={true} defaultValue="name">
           <FormControlLabel
             value="name"
             control={<Radio color="primary" />}

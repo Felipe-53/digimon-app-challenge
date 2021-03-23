@@ -8,7 +8,14 @@ const useStyles = makeStyles({
   },
 
   inputs: {
-    width: '45%'
+    maxWidth: '15rem',
+    // marginTop: '1rem',
+    marginBottom: '1.5rem'
+  },
+
+  radioGroup: {
+    maxWidth: '15rem',
+    margin: '2rem',
   }
 });
 
