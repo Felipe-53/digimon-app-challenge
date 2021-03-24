@@ -1,16 +1,10 @@
-const urls = {
-  base:  'https://digimon-api.vercel.app/api/digimon',
-  name:  'https://digimon-api.vercel.app/api/digimon/',
-  level: 'https://digimon-api.vercel.app/api/digimon/'
-}
+const BASE_URL = 'https://digimon-api.vercel.app/api/digimon';
 
 function buildUrl(filterBy, value) {
-  console.log(filterBy, value);
-  let baseUrl = urls[filterBy];
   if (!filterBy) {
-    return baseUrl
+    return BASE_URL;
   }
-  return baseUrl + filterBy + '/' + value;
+  return BASE_URL + '/' + filterBy + '/' + value;
 }
 
-export default buildUrl
+export default buildUrl;
