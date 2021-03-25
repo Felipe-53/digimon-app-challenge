@@ -5,13 +5,11 @@ import { Typography } from '@material-ui/core'
 const useStyles = makeStyles({
   info: {
     margin: '2rem',
-    maxWidth: '50%',
+    maxWidth: '30rem',
     textAlign: 'justify',
     textJustify: 'inter-word',
-    
   }
 })
-
 
 function Info() {
   const classes = useStyles();
@@ -24,7 +22,7 @@ function Info() {
         The number of Digimon species continuously increases as the Digital World expands each year.
       </Typography>
     </div>
-  )
+  );
 }
 
 export default Info
