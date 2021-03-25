@@ -11,12 +11,16 @@ const useStyles = makeStyles({
   }
 })
 
-function LandingActions({ set_openSearchModal }) {
+function LandingActions({ set_openSearchModal, set_openIncludeModal }) {
   const classes = useStyles();
 
   return (
     <div className={classes.actions}> 
-      <Button variant="contained" color="secondary">
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => set_openIncludeModal(true)}
+      >
         INCLUDE
       </Button>
 

@@ -10,7 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { BadRequestError } from '../../utils/errors';
 
-function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue, fetchData, set_whichPage }) {
+function SearchDigimon({ openSearchModal, set_openSearchModal, searchType, set_searchType, searchValue, set_searchValue, fetchData, set_whichPage }) {
   const classes = useStyles();
 
   const [searchStatus, set_searchStatus] = useState('notInitiated');
@@ -48,7 +48,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
 
     fetchData()
       .then(data => {
-        set_openModal(false);
+        set_openSearchModal(false);
         if (data.length > 1) {
           set_whichPage('listing');
         }
@@ -65,7 +65,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
   }
 
   function handleClose() {
-    set_openModal(false);
+    set_openSearchModal(false);
     set_searchType('name');
     set_searchValue(null);
     setTimeout(() => set_searchStatus('notInitiated'), 100);
@@ -96,7 +96,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
   }
 
   return (
-    <Dialog PaperProps={{style: {width: '60%'}}} open={openModal} onClose={handleClose}>
+    <Dialog PaperProps={{style: {width: '60%'}}} open={openSearchModal} onClose={handleClose}>
       <DialogTitle>Search Digimon</DialogTitle>
       <DialogContent className={classes.dialogContent}>
         {mapping[searchStatus]}
