@@ -28,7 +28,7 @@ function DigimonTable({ fetchedApiData, set_digimons }) {
   );
 
   return (
-    <Table className={classes.digimonTable} aria-label="simple table">
+    <Table className={classes.digimonTable}>
       <TableHead>
         <TableRow>
           <TableCell align="center">Avatar</TableCell>
