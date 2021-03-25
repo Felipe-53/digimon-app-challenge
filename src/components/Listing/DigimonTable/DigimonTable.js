@@ -55,7 +55,9 @@ function DigimonTable({ fetchedApiData, set_digimons }) {
       <TableFooter>
         <TableRow>
           <TablePagination
-            colSpan={3}
+            labelDisplayedRows={() => null}
+            labelRowsPerPage={null}
+            rowsPerPageOptions={[]}
             count={fetchedApiData.length}
             rowsPerPage={10}
             page={page}

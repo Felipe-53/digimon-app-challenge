@@ -11,8 +11,11 @@ const useStyles = makeStyles({
   },
 
   logo: {
-    marginLeft: '0.5rem'
-  }
+    marginLeft: '0.5rem',
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  },
 });
 
 export default useStyles;
