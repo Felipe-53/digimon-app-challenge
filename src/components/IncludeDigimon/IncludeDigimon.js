@@ -5,6 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useStyles from './includeDigimonStyles';
 import Button from '@material-ui/core/Button';
+import Fields from './Fields/Fields';
 
 function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
   const classes = useStyles();
@@ -12,11 +13,19 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
   const [includeStatus, set_includeStatus] = useState('notInitiated');
   const [name, set_name] = useState('');
   const [level, set_level] = useState('');
+  const [img, set_img] = useState(null);
 
 
   const mapping = {
     'notInitiated': (
-      null
+      <Fields
+        name={name}
+        set_name={set_name}
+        level={level}
+        set_level={set_level}
+        img={img}
+        set_img={set_img}
+      />
     ),
 
     'submited': null,
@@ -24,7 +33,7 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
     'error': null
   }
 
-  function handleSearchClick() {
+  function handleIncludeClick() {
     return null;
   }
 
@@ -39,7 +48,7 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleSearchClick}
+            onClick={handleIncludeClick}
           >
             INCLUDE
           </Button>
