@@ -6,23 +6,17 @@ import Listing from '../components/Listing/Listing';
 import buildUrl from '../utils/urls';
 import consumeEndpoint from '../utils/getEndpoint';
 import BasePage from '../components/BasePage/BasePage';
-import { BadApiResponseError } from '../utils/errors';
-
 
 function App() {
   const [digimons, set_digimons] = useState([]);
   const [searchType, set_searchType] = useState('name');
   const [searchValue, set_searchValue] = useState(null);
-  const [fetchedApiData, set_fetchedApiData] = useState(false);
+  const [fetchedApiData, set_fetchedApiData] = useState(null);
   const [whichPage, set_whichPage] = useState('landing');
-
 
   const fetchData = async () => {
     const url = buildUrl(searchType, searchValue);
     let data = await consumeEndpoint(url);
-    if (data === "error") {
-      throw new BadApiResponseError('error');
-    }
     set_fetchedApiData(data);
     set_digimons(data);
     return data;

@@ -8,7 +8,7 @@ import useStyles from './searchDigimonStyles';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { BadApiResponseError } from '../../utils/errors';
+import { BadRequestError } from '../../utils/errors';
 
 function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, searchValue, set_searchValue, fetchData, set_whichPage }) {
   const classes = useStyles();
@@ -30,7 +30,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
     ),
 
     'badRequestError': (
-      <h3>The Digimon you searched doesn't exist</h3>
+      <h3>We couldn't find what you were looking for</h3>
     ),
 
     'unexpectedError': (
@@ -56,7 +56,7 @@ function SearchDigimon({ openModal, set_openModal, searchType, set_searchType, s
         set_searchValue(null);
       })
       .catch(err => {
-        if (err instanceof BadApiResponseError) {
+        if (err instanceof BadRequestError) {
           return set_searchStatus('badRequestError');
         }
 
