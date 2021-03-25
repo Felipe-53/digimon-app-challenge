@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   }
 })
 
-function Actions({ set_openModal }) {
+function LandingActions({ set_openSearchModal }) {
   const classes = useStyles();
 
   return (
@@ -23,7 +23,7 @@ function Actions({ set_openModal }) {
       <Button
         variant="contained"
         color="primary"
-        onClick={() => set_openModal(true)}
+        onClick={() => set_openSearchModal(true)}
       >
         SEARCH
       </Button>
@@ -31,4 +31,4 @@ function Actions({ set_openModal }) {
   );
 }
 
-export default Actions
+export default LandingActions;
