@@ -13,10 +13,34 @@ function App() {
   const [searchValue, set_searchValue] = useState(null);
   const [fetchedApiData, set_fetchedApiData] = useState(null);
   const [whichPage, set_whichPage] = useState('landing');
+  const [inMemoryDb, set_inMemoryDb] = useState([]);
+
+  function getDataFromMemory() {
+    if (searchType === 'name') {
+      for (let i = 0; i < inMemoryDb.length; i++) {
+        if (inMemoryDb[i].name === searchValue) {
+          let match = inMemoryDb[i];
+          return [match];
+        }
+      }
+      return [];
+    }
+    
+    return inMemoryDb.filter(digimon => {
+      if (digimon.level === searchValue) {
+        return digimon;
+      }
+    });
+  }
 
   const fetchData = async () => {
+    if (searchValue === 'name') {
+      let memoryData = getDataFromMemory();
+      if (memoryData.length === 1) return memoryData;
+    }
     const url = buildUrl(searchType, searchValue);
     let data = await consumeEndpoint(url);
+    data = [...getDataFromMemory(), data];
     set_fetchedApiData(data);
     set_digimons(data);
     return data;
