@@ -10,6 +10,8 @@ import buildUrl from '../../utils/urls';
 import { CircularProgress } from '@material-ui/core';
 import consumeEndpoint from '../../utils/getEndpoint';
 
+const DELAY = 1000;
+
 function IncludeDigimon({ openIncludeModal, set_openIncludeModal, set_inMemoryDb, inMemoryDb }) {
   const classes = useStyles();
 
@@ -45,7 +47,7 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal, set_inMemoryDb
       return [...prevRecords, newDigimon];
     });
     set_includeStatus('submited');
-    setTimeout(() => resetValues(), 1000);
+    setTimeout(() => resetValues(), DELAY);
   }
 
 
@@ -70,13 +72,13 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal, set_inMemoryDb
     ),
 
     'error': (
-      <h3>There was a problem!</h3>
+      <h3>A digimon with that name already exists</h3>
     )
   }
 
   function handleClose() {
-    setTimeout(() => set_includeStatus('notInitiated'), 1000);
-    setTimeout(() => resetValues(), 1000);
+    setTimeout(() => set_includeStatus('notInitiated'), DELAY);
+    setTimeout(() => resetValues(), DELAY);
     set_openIncludeModal(false);
   }
 
@@ -85,6 +87,7 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal, set_inMemoryDb
       return (
         <DialogActions>
           <Button
+            disabled={name === '' || level === '' || img === null}
             variant="contained"
             color="primary"
             onClick={handleInclude}
