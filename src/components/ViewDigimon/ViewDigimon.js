@@ -15,6 +15,11 @@ const useStyles = makeStyles({
     '> *': {
       magin: '0.5rem'
     }
+  },
+
+  img: {
+    width: 320,
+    height: 320
   }
 })
 
@@ -35,7 +40,7 @@ function ViewDigimon({digimons, set_digimons}) {
         </div>
       </DialogTitle>
       <DialogContent>
-        <img src={img} />
+        <img src={img} className={classes.img} />
       </DialogContent>
     </Dialog>
   );
