@@ -57,6 +57,8 @@ function App() {
         digimons={digimons}
         set_digimons={set_digimons}
         set_whichPage={set_whichPage}
+        inMemoryDb={inMemoryDb}
+        set_inMemoryDb={set_inMemoryDb}
       />
     ),
 

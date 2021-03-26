@@ -6,14 +6,47 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useStyles from './includeDigimonStyles';
 import Button from '@material-ui/core/Button';
 import Fields from './Fields/Fields';
+import buildUrl from '../../utils/urls';
+import { CircularProgress } from '@material-ui/core';
+import consumeEndpoint from '../../utils/getEndpoint';
 
-function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
+function IncludeDigimon({ openIncludeModal, set_openIncludeModal, set_inMemoryDb, inMemoryDb }) {
   const classes = useStyles();
 
   const [includeStatus, set_includeStatus] = useState('notInitiated');
   const [name, set_name] = useState('');
   const [level, set_level] = useState('');
   const [img, set_img] = useState(null);
+
+  function resetValues() {
+    set_name('');
+    set_level('');
+    set_img(null);
+  }
+
+  async function handleInclude() {
+    set_includeStatus('loading');
+
+    let res = await consumeEndpoint(buildUrl());
+    let data = [...res, ...inMemoryDb];
+    for (let i = 0; i < data.length; i++) {
+      let digimon = data[i];
+      if (name === digimon.name) {
+        resetValues();
+        return set_includeStatus('error');
+      }
+    }
+    set_inMemoryDb(prevRecords => {
+      const newDigimon = {
+        name,
+        level,
+        img
+      }
+      return [...prevRecords, newDigimon];
+    });
+    set_includeStatus('submited');
+    setTimeout(() => resetValues(), 1000);
+  }
 
 
   const mapping = {
@@ -28,16 +61,22 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
       />
     ),
 
-    'submited': null,
+    'loading': (
+      <CircularProgress />
+    ),
 
-    'error': null
-  }
+    'submited': (
+      <h3>The digimon you entered was successfully included</h3>
+    ),
 
-  function handleIncludeClick() {
-    return null;
+    'error': (
+      <h3>There was a problem!</h3>
+    )
   }
 
   function handleClose() {
+    setTimeout(() => set_includeStatus('notInitiated'), 1000);
+    setTimeout(() => resetValues(), 1000);
     set_openIncludeModal(false);
   }
 
@@ -48,7 +87,7 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal }) {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleIncludeClick}
+            onClick={handleInclude}
           >
             INCLUDE
           </Button>

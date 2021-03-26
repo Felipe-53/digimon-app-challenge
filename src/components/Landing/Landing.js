@@ -7,7 +7,7 @@ import ViewDigimon from '../ViewDigimon/ViewDigimon';
 import IncludeDigimon from '../IncludeDigimon/IncludeDigimon';
 import useStyles from './landingStyles';
 
-function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData, digimons, set_digimons, set_whichPage}) {
+function Landing({searchType, set_searchType, searchValue, set_searchValue, fetchData, digimons, set_digimons, set_whichPage, set_inMemoryDb, inMemoryDb}) {
   const classes = useStyles();
 
   const [openSearchModal, set_openSearchModal] = useState(false);
@@ -30,6 +30,8 @@ function Landing({searchType, set_searchType, searchValue, set_searchValue, fetc
           <IncludeDigimon
             openIncludeModal={openIncludeModal}
             set_openIncludeModal={set_openIncludeModal}
+            set_inMemoryDb={set_inMemoryDb}
+            inMemoryDb={inMemoryDb}
           />
         </>
       );
