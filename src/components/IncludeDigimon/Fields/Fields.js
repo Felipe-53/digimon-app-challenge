@@ -10,7 +10,12 @@ function Fields({name, set_name, level, set_level, set_img}) {
   const classes = useStyles();
 
   function handleChooseFile(event) {
-    set_img(event.target.files[0]);
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = event => {
+      set_img(event.target.result);
+    };
+    reader.readAsDataURL(file);
   }
 
   return (

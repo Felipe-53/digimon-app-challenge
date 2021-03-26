@@ -34,13 +34,13 @@ function App() {
   }
 
   const fetchData = async () => {
-    if (searchValue === 'name') {
+    if (searchType === 'name') {
       let memoryData = getDataFromMemory();
       if (memoryData.length === 1) return memoryData;
     }
     const url = buildUrl(searchType, searchValue);
     let data = await consumeEndpoint(url);
-    data = [...getDataFromMemory(), data];
+    data = [...data, ...getDataFromMemory()];
     set_fetchedApiData(data);
     set_digimons(data);
     return data;
