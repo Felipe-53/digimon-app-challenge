@@ -18,7 +18,7 @@ function App() {
   function getDataFromMemory() {
     if (searchType === 'name') {
       for (let i = 0; i < inMemoryDb.length; i++) {
-        if (inMemoryDb[i].name === searchValue) {
+        if (inMemoryDb[i].name.toLowerCase() === searchValue.toLowerCase()) {
           let match = inMemoryDb[i];
           return [match];
         }

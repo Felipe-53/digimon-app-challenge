@@ -33,7 +33,7 @@ function IncludeDigimon({ openIncludeModal, set_openIncludeModal, set_inMemoryDb
     let data = [...res, ...inMemoryDb];
     for (let i = 0; i < data.length; i++) {
       let digimon = data[i];
-      if (name === digimon.name) {
+      if (name.toLowerCase() === digimon.name.toLowerCase()) {
         resetValues();
         return set_includeStatus('error');
       }
