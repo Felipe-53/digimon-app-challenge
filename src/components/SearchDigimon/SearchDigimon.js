@@ -79,6 +79,7 @@ function SearchDigimon({ openSearchModal, set_openSearchModal, searchType, set_s
             variant="contained"
             color="primary"
             onClick={handleSearchClick}
+            disabled={searchValue === null || searchValue === ''}
           >
             SEARCH
           </Button>
