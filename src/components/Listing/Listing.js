@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ViewDigimon from '../ViewDigimon/ViewDigimon';
 import DigimonTable from './DigimonTable/DigimonTable'
 

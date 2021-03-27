@@ -4,11 +4,9 @@ import TableBody from '@material-ui/core/TableBody';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import Avatar from '@material-ui/core/Avatar';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import TablePaginationActions from './TablePaginationActions/TablePaginationActions';
 import useStyles from './digimonTableStyles';
 
