@@ -82,12 +82,6 @@ function SearchDigimon({ openSearchModal, set_openSearchModal, searchType, set_s
           >
             SEARCH
           </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-          >
-            SERCH ALL
-          </Button>
         </DialogActions>
       );
     }
