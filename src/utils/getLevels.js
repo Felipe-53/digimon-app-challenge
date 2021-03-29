@@ -4,7 +4,7 @@ export default function getLevels() {
     'Rookie',
     'Champion',
     'Fresh',
-    'Ulimate',
+    'Ultimate',
     'Mega',
     'Armor'
   ];

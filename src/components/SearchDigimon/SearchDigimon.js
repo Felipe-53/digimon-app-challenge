@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -79,14 +79,9 @@ function SearchDigimon({ openSearchModal, set_openSearchModal, searchType, set_s
             variant="contained"
             color="primary"
             onClick={handleSearchClick}
+            disabled={searchValue === null || searchValue === ''}
           >
             SEARCH
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-          >
-            SERCH ALL
           </Button>
         </DialogActions>
       );
